@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="product-detail-container">
+    <img src="{{ product.image }}" alt="{{ product.title }}" class="product-image">
+    <div class="product-info">
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <h3>Price: ₹{{ product.price }}</h3>
+        {% if user.is_authenticated %}
+            <a href="{% url 'add_to_cart' product.pk %}" class="btn">Add to Cart</a>
+        {% else %}
+            <p><a href="{% url 'user_login' %}">Login</a> to add to cart</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

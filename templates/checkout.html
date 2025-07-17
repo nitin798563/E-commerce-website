@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="page-title">Checkout</h2>
+
+<table class="cart-table">
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+    </tr>
+    {% for item in cart_items %}
+    <tr>
+        <td>{{ item.product.title }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>₹{{ item.subtotal }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="2" style="text-align:right;"><strong>Total:</strong></td>
+        <td><strong>₹{{ total }}</strong></td>
+    </tr>
+</table>
+
+<div class="payment-box">
+    <h3>Select Payment Method</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label><input type="radio" name="method" checked> UPI / Google Pay / PhonePe</label><br>
+        <label><input type="radio" name="method"> Debit/Credit Card</label><br>
+        <label><input type="radio" name="method"> Net Banking</label><br>
+        <label><input type="radio" name="method"> Cash on Delivery</label><br><br>
+        <button type="submit" class="btn">Proceed to Pay</button>
+    </form>
+</div>
+{% endblock %}
