@@ -14,6 +14,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 from django.contrib import messages
+import dj_database_url
 
 #load variables from .env file
 load_dotenv()
@@ -81,12 +82,7 @@ WSGI_APPLICATION = 'Ecommerce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('your_db_name'),
-        'USER': os.getenv('your_username'),
-        'PASSWORD': os.getenv('your_password'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        dj_database_url.config(deafult = os.getenv("DATABASE_URL"))
     }
 }
 
