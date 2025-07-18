@@ -56,7 +56,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 ]
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'Ecommerce.urls'
 
@@ -91,12 +96,7 @@ DATABASES = {
         'PORT': os.getenv("PGPORT","5432"),
     }
 }
-print("DATABASE SETTINGS:")
-print("NAME:", os.getenv("PGDATABASE"))
-print("USER:", os.getenv("PGUSER"))
-print("PASSWORD:", os.getenv("PGPASSWORD"))
-print("HOST:", os.getenv("PGHOST"))
-print("PORT:", os.getenv("PGPORT"))
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -135,6 +135,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
