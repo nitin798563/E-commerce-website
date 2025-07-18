@@ -111,9 +111,9 @@ def user_register(request):
         u = request.POST['username']
         p = request.POST['password']
         if User.objects.filter(username=u).exists():
-            return HttpResponse("Username already registered.")
+            return render(request,"register.html",{"error": "Username already exists."})
         User.objects.create_user(username=u, password=p)
-        return redirect('user_login')
+        return render(request,"register.html",{"success": "User created successfully."})
     return render(request, 'register.html')
 
 def user_logout(request):
