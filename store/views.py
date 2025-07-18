@@ -7,15 +7,6 @@ from django.contrib.auth.models import User
 import random
 from django.contrib import messages
 
-from django.core.management import call_command
-from django.http import HttpResponse
-
-def create_admin(request):
-    try:
-        call_command('loaddata', 'superuser.json')
-        return HttpResponse("✅ Superuser created successfully!")
-    except Exception as e:
-        return HttpResponse(f"❌ Error: {e}")
 
 # Home Page
 def home(request):
