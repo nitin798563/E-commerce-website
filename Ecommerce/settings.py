@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 import os
 from django.contrib import messages
 import dj_database_url
+import logging.config
 
 #load variables from .env file
 load_dotenv()
@@ -129,14 +130,23 @@ STATICFILES_DIRS = [BASE_DIR,"static"]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
 LOGGING_CONFIG = 'logging.config.dictConfig'
 
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[{asctime}] {levelname} {name}: {message}',
+            'style': '{',
+        },
+    },
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
         },
     },
     'root': {
