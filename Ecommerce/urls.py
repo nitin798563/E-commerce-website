@@ -28,7 +28,7 @@ urlpatterns = [
     path('payment-success/', views.payment_success, name='payment_success'),
     path('my-orders/', views.my_orders, name='my_orders'),
     path('search/', views.search, name='search'),
-    path('create-admin/', views.create_admin),
+    
       
     
     
