@@ -91,6 +91,12 @@ DATABASES = {
         'PORT': os.getenv("PGPORT","5432"),
     }
 }
+print("DATABASE SETTINGS:")
+print("NAME:", os.getenv("PGDATABASE"))
+print("USER:", os.getenv("PGUSER"))
+print("PASSWORD:", os.getenv("PGPASSWORD"))
+print("HOST:", os.getenv("PGHOST"))
+print("PORT:", os.getenv("PGPORT"))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
