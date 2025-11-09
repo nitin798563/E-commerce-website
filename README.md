@@ -6,8 +6,8 @@ A full-stack **e-commerce website** built using **Django**, **HTML**, and **CSS*
 
 ## 🌟 Features
 
-- ✅ Dynamic product catalog with categories  
-- ✅ Product detail pages with descriptions and images  
+
+- ✅ Product detail with descriptions and images  
 - ✅ Responsive design for mobile and desktop  
 - ✅ Shopping cart functionality  
 - ✅ User authentication (login/signup)  
